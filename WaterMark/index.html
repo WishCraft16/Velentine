@@ -1,0 +1,1383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>For Palak 💖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Caveat:wght@400;700&family=Quicksand:wght@300;400;500;600;700&family=Nunito:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-pink: #ffb6c1;
+        --soft-pink: #ffd6e0;
+        --light-pink: #fff0f5;
+        --accent-rose: #ff69b4;
+        --deep-rose: #ff1493;
+        --cream: #fff8f0;
+        --shadow: rgba(255, 105, 180, 0.2);
+      }
+
+      body {
+        font-family: "Quicksand", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #fff0f5 0%,
+          #ffe4e9 25%,
+          #ffd6e0 50%,
+          #ffe4e9 75%,
+          #fff0f5 100%
+        );
+        background-size: 400% 400%;
+        animation: gradientShift 20s ease infinite;
+        color: #333;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        touch-action: pan-y;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* ========== WATERMARK STYLE ========== */
+      .watermark-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9990; /* High z-index */
+        pointer-events: none; /* Allows clicks to pass through */
+        overflow: hidden;
+      }
+
+      .watermark-text {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 900;
+        font-size: 5rem;
+        /* Using deep rose color with 0.45 opacity as requested */
+        color: rgba(255, 20, 147, 0.45); 
+        text-transform: uppercase;
+        text-align: center;
+        transform: rotate(-30deg);
+        line-height: 1.2;
+        white-space: nowrap;
+        user-select: none;
+        border: 5px solid rgba(255, 20, 147, 0.45);
+        padding: 2rem;
+        border-radius: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .watermark-text {
+          font-size: 2.5rem;
+          white-space: normal;
+        }
+      }
+
+      /* ========== PROMOTION BANNER STYLE ========== */
+      .promo-banner {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(5px);
+        padding: 15px 25px;
+        border: 3px solid var(--deep-rose);
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(255, 20, 147, 0.3);
+        pointer-events: none;
+      }
+
+      .promo-banner img {
+        width: 60px;
+        height: auto;
+        margin-bottom: 5px;
+      }
+
+      .promo-banner h2 {
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: var(--deep-rose);
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .promo-banner span {
+        display: block;
+        font-size: 0.8rem;
+        color: #777;
+      }
+
+      @media (max-width: 768px) {
+        .promo-banner {
+          top: 10px;
+          right: 10px;
+          padding: 10px;
+        }
+        .promo-banner h2 { font-size: 1rem; }
+      }
+
+      /* Floating Hearts Background */
+      .floating-hearts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .heart {
+        position: absolute;
+        font-size: 20px;
+        opacity: 0;
+        animation: floatUp 15s infinite;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.6;
+        }
+        90% {
+          opacity: 0.6;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Container */
+      .container {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Section Styling */
+      section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+        position: relative;
+      }
+
+      /* Glass Card */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        border-radius: 30px;
+        padding: 60px 40px;
+        box-shadow: 0 8px 32px var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .glass-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 182, 193, 0.1),
+          transparent
+        );
+        animation: shimmer 6s infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Typography */
+      h1 {
+        font-family: "Pacifico", cursive;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: var(--deep-rose);
+        text-align: center;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+      }
+
+      h2 {
+        font-family: "Caveat", cursive;
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--accent-rose);
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      p {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-height: 1.8;
+        color: #555;
+        text-align: center;
+      }
+
+      /* Valentine Hero Section */
+      #valentine-hero {
+        text-align: center;
+      }
+
+      .heart-emoji {
+        font-size: clamp(4rem, 10vw, 8rem);
+        animation: heartPulse 1.5s infinite;
+        display: inline-block;
+      }
+
+      @keyframes heartPulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        25% {
+          transform: scale(1.1);
+        }
+        50% {
+          transform: scale(1);
+        }
+      }
+
+      .hero-message {
+        font-family: "Caveat", cursive;
+        font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+        color: #666;
+        margin-top: 30px;
+        line-height: 1.6;
+      }
+
+      /* Message Bottles */
+      .message-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .message-bottle {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 214, 224, 0.9)
+        );
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 8px 20px var(--shadow);
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        border: 2px solid rgba(255, 182, 193, 0.3);
+        position: relative;
+        overflow: hidden;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+      }
+
+      .message-bottle::before {
+        content: "💖";
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 2rem;
+        opacity: 0.3;
+      }
+
+      .message-bottle:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 15px 40px var(--shadow);
+      }
+
+      .message-bottle h3 {
+        font-family: "Caveat", cursive;
+        font-size: 1.5rem;
+        color: var(--accent-rose);
+        margin-bottom: 15px;
+      }
+
+      .message-bottle .message-text {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.6;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.5s ease;
+      }
+
+      .message-bottle.revealed .message-text {
+        max-height: 500px;
+        opacity: 1;
+        margin-top: 15px;
+      }
+
+      .tap-hint {
+        font-size: 0.85rem;
+        color: var(--accent-rose);
+        font-style: italic;
+        margin-top: 10px;
+        opacity: 0.8;
+      }
+
+      .message-bottle.revealed .tap-hint {
+        display: none;
+      }
+
+      /* Timeline */
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 40px auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          var(--primary-pink),
+          var(--accent-rose)
+        );
+        border-radius: 2px;
+      }
+
+      .timeline-item {
+        margin-bottom: 50px;
+        position: relative;
+        opacity: 0;
+        animation: fadeInUp 0.8s forwards;
+      }
+
+      .timeline-item:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .timeline-item:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      .timeline-item:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      .timeline-item:nth-child(4) {
+        animation-delay: 0.8s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .timeline-content {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px var(--shadow);
+        width: 45%;
+        position: relative;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content {
+        margin-left: 55%;
+      }
+
+      .timeline-item:nth-child(even) .timeline-content {
+        margin-right: 55%;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        background: var(--deep-rose);
+        border-radius: 50%;
+        border: 4px solid white;
+        box-shadow: 0 0 0 4px var(--primary-pink);
+        top: 20px;
+        z-index: 1;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: translateX(-50%) scale(1);
+        }
+        50% {
+          transform: translateX(-50%) scale(1.2);
+        }
+      }
+
+      .timeline-content h3 {
+        font-family: "Caveat", cursive;
+        font-size: 1.8rem;
+        color: var(--accent-rose);
+        margin-bottom: 10px;
+      }
+
+      .timeline-content p {
+        font-size: 1rem;
+        color: #666;
+        text-align: left;
+      }
+
+      /* Photo Memories */
+      .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .polaroid {
+        background: white;
+        padding: 15px;
+        padding-bottom: 50px;
+        box-shadow: 0 10px 30px var(--shadow);
+        border-radius: 5px;
+        transform: rotate(-2deg);
+        transition: all 0.4s ease;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .polaroid:nth-child(even) {
+        transform: rotate(2deg);
+      }
+
+      .polaroid:hover,
+      .polaroid:active {
+        transform: rotate(0deg) scale(1.05);
+        box-shadow: 0 20px 50px var(--shadow);
+        z-index: 10;
+      }
+
+      .polaroid-image {
+        width: 100%;
+        aspect-ratio: 1;
+        background: linear-gradient(135deg, #ffd6e0, #ffb6c1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        border-radius: 3px;
+      }
+
+      /* Make the image responsive */
+      .polaroid-image img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: block;
+      }
+
+      .polaroid-caption {
+        font-family: "Caveat", cursive;
+        font-size: 1.3rem;
+        color: #555;
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      /* Love Letter */
+      .envelope-container {
+        perspective: 1000px;
+        margin: 40px auto;
+        max-width: 600px;
+      }
+
+      .envelope {
+        background: linear-gradient(135deg, #ffe4e9, #ffb6c1);
+        width: 100%;
+        height: 400px;
+        border-radius: 10px;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.5s ease;
+        box-shadow: 0 10px 40px var(--shadow);
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .envelope:hover,
+      .envelope:active {
+        transform: translateY(-10px);
+      }
+
+      .envelope-flap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #ff69b4, #ffb6c1);
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+        transform-origin: top;
+        transition: transform 0.8s ease;
+        border-radius: 10px 10px 0 0;
+      }
+
+      .envelope.open .envelope-flap {
+        transform: rotateX(180deg);
+      }
+
+      .letter {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 10px;
+        width: 90%;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.8s ease 0.3s;
+        box-shadow: 0 5px 20px var(--shadow);
+      }
+
+      .envelope.open .letter {
+        max-height: 500px;
+        opacity: 1;
+      }
+
+      .letter h3 {
+        font-family: "Pacifico", cursive;
+        font-size: 1.8rem;
+        color: var(--deep-rose);
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .letter p {
+        font-family: "Caveat", cursive;
+        font-size: 1.3rem;
+        color: #666;
+        line-height: 1.8;
+        text-align: left;
+      }
+
+      .envelope-hint {
+        text-align: center;
+        margin-top: 20px;
+        font-family: "Caveat", cursive;
+        font-size: 1.2rem;
+        color: var(--accent-rose);
+      }
+
+      /* Valentine Question Section */
+      #valentine-question {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .question-card {
+        text-align: center;
+        max-width: 700px;
+        width: 100%;
+      }
+
+      .big-question {
+        font-family: "Pacifico", cursive;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        color: var(--deep-rose);
+        margin-bottom: 50px;
+        animation: heartbeat 1.5s infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        10%,
+        30% {
+          transform: scale(1.05);
+        }
+        20%,
+        40% {
+          transform: scale(1);
+        }
+      }
+
+      .button-container {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        min-height: 80px;
+      }
+
+      .btn {
+        font-family: "Quicksand", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding: 20px 50px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px var(--shadow);
+        position: relative;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+      }
+
+      .btn-yes {
+        background: linear-gradient(
+          135deg,
+          var(--accent-rose),
+          var(--deep-rose)
+        );
+        color: white;
+      }
+
+      .btn-yes:hover,
+      .btn-yes:active {
+        transform: scale(1.1);
+        box-shadow: 0 10px 40px var(--shadow);
+      }
+
+      .btn-no {
+        background: linear-gradient(135deg, #ddd, #bbb);
+        color: #666;
+        transition: all 0.2s ease;
+        touch-action: none;
+      }
+
+      /* Success Message */
+      .success-message {
+        display: none;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .success-message.show {
+        display: block;
+        animation: fadeInScale 0.6s ease;
+      }
+
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .success-message h2 {
+        font-family: "Pacifico", cursive;
+        font-size: 2.5rem;
+        color: var(--deep-rose);
+        margin-bottom: 20px;
+      }
+
+      .success-message p {
+        font-family: "Caveat", cursive;
+        font-size: 1.5rem;
+        color: #666;
+      }
+
+      .celebration {
+        font-size: 3rem;
+        margin: 20px 0;
+      }
+
+      /* Confetti */
+      .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: var(--accent-rose);
+        position: absolute;
+        animation: confetti-fall 3s linear infinite;
+      }
+
+      @keyframes confetti-fall {
+        to {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Sparkles */
+      .sparkle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: white;
+        border-radius: 50%;
+        animation: sparkle 2s infinite;
+      }
+
+      @keyframes sparkle {
+        0%,
+        100% {
+          opacity: 0;
+          transform: scale(0);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        section {
+          min-height: auto;
+          padding: 40px 15px;
+        }
+
+        .container {
+          padding: 10px;
+        }
+
+        .glass-card {
+          padding: 30px 20px;
+          border-radius: 20px;
+        }
+
+        h1 {
+          font-size: 2rem;
+          margin-bottom: 15px;
+        }
+
+        h2 {
+          font-size: 1.8rem;
+          margin-bottom: 20px;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        .heart-emoji {
+          font-size: 5rem;
+        }
+
+        .hero-message {
+          font-size: 1.1rem;
+          margin-top: 20px;
+        }
+
+        /* Message bottles mobile */
+        .message-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          margin-top: 30px;
+        }
+
+        .message-bottle {
+          padding: 25px 20px;
+        }
+
+        .message-bottle h3 {
+          font-size: 1.3rem;
+        }
+
+        .message-bottle .message-text {
+          font-size: 0.95rem;
+        }
+
+        /* Timeline mobile */
+        .timeline {
+          margin: 30px auto;
+        }
+
+        .timeline::before {
+          left: 20px;
+        }
+
+        .timeline-content {
+          width: calc(100% - 60px);
+          margin-left: 50px !important;
+          margin-right: 0 !important;
+          padding: 20px;
+        }
+
+        .timeline-dot {
+          left: 20px;
+          width: 16px;
+          height: 16px;
+        }
+
+        .timeline-content h3 {
+          font-size: 1.5rem;
+        }
+
+        .timeline-content p {
+          font-size: 0.95rem;
+        }
+
+        .timeline-item {
+          margin-bottom: 40px;
+        }
+
+        /* Photo grid mobile */
+        .photo-grid {
+          grid-template-columns: 1fr;
+          gap: 25px;
+          margin-top: 30px;
+        }
+
+        .polaroid {
+          padding: 12px;
+          padding-bottom: 40px;
+        }
+
+        .polaroid-caption {
+          font-size: 1.1rem;
+          margin-top: 12px;
+        }
+
+        /* Envelope mobile */
+        .envelope-container {
+          margin: 30px auto;
+        }
+
+        .envelope {
+          height: 350px;
+        }
+
+        .letter {
+          padding: 25px 20px;
+          width: 95%;
+        }
+
+        .letter h3 {
+          font-size: 1.5rem;
+          margin-bottom: 15px;
+        }
+
+        .letter p {
+          font-size: 1.1rem;
+        }
+
+        .envelope-hint {
+          font-size: 1.1rem;
+          margin-top: 15px;
+        }
+
+        /* Valentine question mobile */
+        #valentine-question {
+          min-height: 100vh;
+          padding: 40px 15px;
+        }
+
+        .big-question {
+          font-size: 1.8rem;
+          margin-bottom: 40px;
+        }
+
+        .button-container {
+          gap: 15px;
+          flex-direction: column;
+          align-items: stretch;
+          padding: 0 20px;
+        }
+
+        .btn {
+          padding: 18px 40px;
+          font-size: 1.3rem;
+          width: 100%;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+
+        .btn-no {
+          position: relative;
+        }
+
+        .success-message h2 {
+          font-size: 2rem;
+        }
+
+        .success-message p {
+          font-size: 1.2rem;
+          padding: 0 10px;
+        }
+
+        .celebration {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .glass-card {
+          padding: 25px 15px;
+        }
+
+        h1 {
+          font-size: 1.75rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        .heart-emoji {
+          font-size: 4rem;
+        }
+
+        .hero-message {
+          font-size: 1rem;
+        }
+
+        .big-question {
+          font-size: 1.5rem;
+        }
+
+        .btn {
+          padding: 15px 30px;
+          font-size: 1.2rem;
+        }
+
+        .envelope {
+          height: 300px;
+        }
+
+        .letter {
+          padding: 20px 15px;
+        }
+
+        .letter h3 {
+          font-size: 1.3rem;
+        }
+
+        .letter p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="watermark-overlay">
+        <div class="watermark-text">
+            PREVIEW LINK ONLY <br>
+            DM TO CUSTOMIZE
+        </div>
+    </div>
+
+    <div class="promo-banner">
+        <img src="your-logo-link-here.png" alt="WISHCRAFT LOGO" onerror="this.style.display='none'">
+        <h2>DM WISHCRAFT</h2>
+        <span>TO CUSTOMIZE YOURS</span>
+    </div>
+
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <section id="valentine-hero">
+      <div class="container">
+        <div class="glass-card">
+          <h1>Happy Valentine's Day, Palak 💖</h1>
+          <div class="heart-emoji">💝</div>
+          <p class="hero-message">
+            On this special day of love, I want you to know<br />
+            that you are my everything, my forever Valentine.<br />
+            Every moment with you is a precious gift I treasure! 💕
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="love-messages">
+      <div class="container">
+        <div class="glass-card">
+          <h2>Love Messages Just for You 💌</h2>
+          <p>Tap each heart to reveal a special message!</p>
+
+          <div class="message-grid">
+            <div
+              class="message-bottle"
+              onclick="this.classList.toggle('revealed')"
+            >
+              <h3>My Heart's Home</h3>
+              <p class="tap-hint">✨ Tap to reveal</p>
+              <p class="message-text">
+                You are the home my heart has been searching for. With you, I've
+                found a love that feels like coming home - warm, safe, and
+                absolutely perfect. 🏡💕
+              </p>
+            </div>
+
+            <div
+              class="message-bottle"
+              onclick="this.classList.toggle('revealed')"
+            >
+              <h3>Forever & Always</h3>
+              <p class="tap-hint">✨ Tap to reveal</p>
+              <p class="message-text">
+                My love for you isn't just for today or tomorrow - it's for
+                always. You've captured my heart completely, and I never want to
+                let this feeling go. 💝
+              </p>
+            </div>
+
+            <div
+              class="message-bottle"
+              onclick="this.classList.toggle('revealed')"
+            >
+              <h3>You Complete Me</h3>
+              <p class="tap-hint">✨ Tap to reveal</p>
+              <p class="message-text">
+                Before you, I didn't know what I was missing. Now I can't
+                imagine my life without you. You complete me in ways I never
+                knew were possible. 🌈💖
+              </p>
+            </div>
+
+            <div
+              class="message-bottle"
+              onclick="this.classList.toggle('revealed')"
+            >
+              <h3>My Greatest Gift</h3>
+              <p class="tap-hint">✨ Tap to reveal</p>
+              <p class="message-text">
+                Life gave me the greatest gift when it brought you to me. Your
+                love, your smile, your presence - these are the treasures I hold
+                most dear. 🎁❤️
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline-section">
+      <div class="container">
+        <div class="glass-card">
+          <h2>Our Love Story 💕</h2>
+          <p>Beautiful moments that brought us closer</p>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>The First Smile</h3>
+                <p>
+                  The moment I first saw your smile, I knew my heart had found
+                  something special. That smile lit up my entire world and
+                  hasn't stopped shining since. ✨
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>Getting to Know You</h3>
+                <p>
+                  Every conversation revealed another beautiful layer of who you
+                  are. Your kindness, your humor, your dreams - I fell in love
+                  with all of it, and all of you. 💫
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>The Little Things</h3>
+                <p>
+                  It's the small moments that matter most - your laugh, the way
+                  you care about others, how you make ordinary days feel
+                  extraordinary. These are the treasures I hold close. 🎁
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3>Today & Forever</h3>
+                <p>
+                  And here we are, creating new memories every day. I'm so
+                  excited for all the adventures ahead, all the laughs we'll
+                  share, and all the love we'll continue to build together. 🌟
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="photo-memories">
+      <div class="container">
+        <div class="glass-card">
+          <h2>Cherished Memories 📸</h2>
+          <p>Moments captured, memories treasured forever</p>
+
+          <div class="photo-grid">
+            <div class="polaroid">
+              <div class="polaroid-image">
+                <img src="img1.jpeg" alt="Description of memory" />
+              </div>
+              <div class="polaroid-caption">Every moment with you</div>
+            </div>
+
+            <div class="polaroid">
+              <div class="polaroid-image">
+                <img src="img2.jpeg" alt="Description of memory" />
+              </div>
+              <div class="polaroid-caption">Your beautiful smile</div>
+            </div>
+
+            <div class="polaroid">
+              <div class="polaroid-image">
+                <img src="img3.jpeg" alt="Description of memory" />
+              </div>
+              <div class="polaroid-caption">You light up my life</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="love-letter">
+      <div class="container">
+        <div class="glass-card">
+          <h2>A Love Letter for You 💌</h2>
+
+          <div class="envelope-container">
+            <div class="envelope" id="envelope">
+              <div class="envelope-flap"></div>
+              <div class="letter">
+                <h3>My Dearest palak,</h3>
+                <p>
+                  As Valentine's Day fills the air with love, I want you to know
+                  that you are the most precious gift in my life. Your presence
+                  has transformed my world in ways I never imagined possible.
+                  <br /><br />
+                  You are my sunshine on cloudy days, my laughter when I need
+                  joy, and my peace when the world feels chaotic. Every day with
+                  you is a blessing I cherish deeply.
+                  <br /><br />
+                  Thank you for being you - beautiful, kind, amazing, and
+                  absolutely wonderful in every way.
+                  <br /><br />
+                  With all my love,<br />
+                  Forever yours 💖
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p class="envelope-hint">✨ Click the envelope to open ✨</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="valentine-question">
+      <div class="container">
+        <div class="glass-card">
+          <div class="question-card">
+            <h1 class="big-question">Will you be my Valentine, palak? 💖</h1>
+
+            <div class="button-container" id="buttonContainer">
+              <button class="btn btn-yes" id="yesBtn">Yes 💖</button>
+              <button class="btn btn-no" id="noBtn">No 😢</button>
+            </div>
+
+            <div class="success-message" id="successMessage">
+              <div class="celebration">🎉💕🎊💖✨</div>
+              <h2>Yay! You made my day! 🥰</h2>
+              <p>
+                I'm the happiest person alive right now!<br />
+                Thank you for being my Valentine, palak.<br />
+                Here's to forever and always! 💑💕
+              </p>
+              <div class="celebration">💖✨🌹💝🎉</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Floating Hearts
+      function createFloatingHearts() {
+        const container = document.getElementById("floatingHearts");
+        const heartSymbols = ["💖", "💕", "💗", "💝", "❤️", "💘"];
+
+        setInterval(() => {
+          const heart = document.createElement("div");
+          heart.className = "heart";
+          heart.textContent =
+            heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+          heart.style.left = Math.random() * 100 + "%";
+          heart.style.animationDuration = Math.random() * 10 + 10 + "s";
+          heart.style.fontSize = Math.random() * 20 + 15 + "px";
+          container.appendChild(heart);
+
+          setTimeout(() => heart.remove(), 15000);
+        }, 800);
+      }
+
+      createFloatingHearts();
+
+      // Add sparkles to glass cards
+      function addSparkles() {
+        const cards = document.querySelectorAll(".glass-card");
+        cards.forEach((card) => {
+          for (let i = 0; i < 20; i++) {
+            const sparkle = document.createElement("div");
+            sparkle.className = "sparkle";
+            sparkle.style.left = Math.random() * 100 + "%";
+            sparkle.style.top = Math.random() * 100 + "%";
+            sparkle.style.animationDelay = Math.random() * 2 + "s";
+            card.appendChild(sparkle);
+          }
+        });
+      }
+
+      addSparkles();
+
+      // Envelope click
+      const envelope = document.getElementById("envelope");
+      envelope.addEventListener("click", function () {
+        this.classList.toggle("open");
+      });
+
+      // Valentine's Day Buttons
+      const yesBtn = document.getElementById("yesBtn");
+      const noBtn = document.getElementById("noBtn");
+      const successMessage = document.getElementById("successMessage");
+      const buttonContainer = document.getElementById("buttonContainer");
+
+      // Yes button - show success message
+      yesBtn.addEventListener("click", function () {
+        buttonContainer.style.display = "none";
+        successMessage.classList.add("show");
+        createConfetti();
+      });
+
+      // No button - move away on hover and click
+      function moveNoButton(e) {
+        e.preventDefault();
+        const isMobile = window.innerWidth <= 768;
+
+        // Random movement range (smaller on mobile)
+        const maxMove = isMobile ? 150 : 300;
+        const randomX = (Math.random() - 0.5) * maxMove;
+        const randomY = (Math.random() - 0.5) * (isMobile ? 80 : 120);
+
+        noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+        // On mobile, also add a slight rotation for fun
+        if (isMobile) {
+          const rotation = (Math.random() - 0.5) * 30;
+          noBtn.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${rotation}deg)`;
+        }
+      }
+
+      noBtn.addEventListener("mouseenter", moveNoButton);
+      noBtn.addEventListener("click", moveNoButton);
+      noBtn.addEventListener("touchstart", moveNoButton);
+
+      // Prevent scroll on touch for the No button
+      noBtn.addEventListener("touchmove", (e) => e.preventDefault());
+
+      // Confetti effect
+      function createConfetti() {
+        const colors = ["#FF69B4", "#FFB6C1", "#FF1493", "#FFC0CB", "#FF6B9D"];
+
+        for (let i = 0; i < 100; i++) {
+          setTimeout(() => {
+            const confetti = document.createElement("div");
+            confetti.className = "confetti";
+            confetti.style.left = Math.random() * 100 + "%";
+            confetti.style.top = "-10px";
+            confetti.style.backgroundColor =
+              colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animationDuration = Math.random() * 2 + 2 + "s";
+            confetti.style.animationDelay = Math.random() * 0.5 + "s";
+            document.body.appendChild(confetti);
+
+            setTimeout(() => confetti.remove(), 3500);
+          }, i * 30);
+        }
+      }
+
+      // Smooth scroll for any internal links (if needed)
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
